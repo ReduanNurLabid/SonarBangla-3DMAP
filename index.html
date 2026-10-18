@@ -835,6 +835,406 @@ noscript { position: fixed; inset: 0; display: grid; place-items: center; z-inde
   background: linear-gradient(90deg, #f59e0b, #10b981, #06b6d4) !important;
 }
 
+
+/* ========================================================
+   SonarBangla3D Creative Presentation Overhaul
+   1. Left Information Dossier (#hero)
+   2. Layer Command Center (.vmenu)
+   ======================================================== */
+
+/* --- 1. Left Information Dossier (#hero) Creative Overhaul --- */
+#hero {
+  position: fixed !important;
+  z-index: 15 !important;
+  left: 22px !important;
+  top: 86px !important;
+  width: 384px !important;
+  max-height: calc(100vh - 106px) !important;
+  border-radius: 28px !important;
+  background: rgba(6, 20, 24, 0.78) !important;
+  backdrop-filter: blur(28px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
+  border: 1px solid rgba(16, 185, 129, 0.22) !important;
+  border-top: 2px solid #10b981 !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(16, 185, 129, 0.1) !important;
+  padding: 24px 22px 20px !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+[data-theme="slate"] #hero {
+  background: rgba(10, 16, 32, 0.8) !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  border-top: 2px solid #38bdf8 !important;
+}
+
+[data-theme="gold"] #hero {
+  background: rgba(20, 16, 12, 0.82) !important;
+  border: 1px solid rgba(245, 158, 11, 0.25) !important;
+  border-top: 2px solid #f59e0b !important;
+}
+
+[data-theme="light"] #hero {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+  border-top: 2px solid #059669 !important;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12) !important;
+}
+
+/* Header & Collapse Chevron */
+.h-name h1 {
+  font-family: var(--font) !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--ink) !important;
+}
+
+.h-name span {
+  font-family: var(--font) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  padding: 2px 8px !important;
+  border-radius: 999px !important;
+  background: rgba(16, 185, 129, 0.14) !important;
+  color: #34d399 !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+}
+
+/* Hero Big Number with Radiant Accent */
+.h-big {
+  margin: 10px 0 4px !important;
+  font-family: var(--font) !important;
+  font-size: 78px !important;
+  line-height: 1 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.04em !important;
+  background: linear-gradient(135deg, #ffffff 10%, #34d399 60%, #f59e0b 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 4px 15px rgba(16, 185, 129, 0.25)) !important;
+}
+
+.h-label {
+  display: inline-block !important;
+  padding: 4px 12px !important;
+  border-radius: 8px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  color: var(--ink-2) !important;
+  margin-top: 6px !important;
+}
+
+/* Did You Know / Fact Card: Reimagined into a Spotlight Card */
+.block:has(.fact) {
+  margin-top: 18px !important;
+  padding: 16px !important;
+  background: rgba(255, 255, 255, 0.035) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-left: 3px solid #f59e0b !important;
+  border-radius: 18px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 8px 24px rgba(0, 0, 0, 0.2) !important;
+}
+
+.block:has(.fact) h2 {
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: #fbbf24 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.block:has(.fact) h2::before {
+  content: '💡' !important;
+  font-size: 14px !important;
+}
+
+.fact {
+  font-size: 13.5px !important;
+  line-height: 1.6 !important;
+  color: var(--ink) !important;
+  font-weight: 500 !important;
+  min-height: 3.8em !important;
+}
+
+.fact-nav button {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  transition: all 0.25s ease !important;
+}
+
+.fact-nav button[aria-current='true'] {
+  width: 22px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(90deg, #f59e0b, #10b981) !important;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.5) !important;
+}
+
+/* Ranked Districts Leaderboard: Reimagined into Glass Metric Cards */
+.rank {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  margin-top: 12px !important;
+}
+
+.rank button {
+  display: grid !important;
+  grid-template-columns: 28px 1fr auto !important;
+  align-items: center !important;
+  column-gap: 10px !important;
+  row-gap: 6px !important;
+  padding: 10px 14px !important;
+  border-radius: 14px !important;
+  background: rgba(255, 255, 255, 0.035) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.rank button:hover {
+  background: rgba(16, 185, 129, 0.12) !important;
+  border-color: rgba(16, 185, 129, 0.35) !important;
+  transform: translateX(4px) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
+}
+
+.rank .no {
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 7px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: var(--ink-2) !important;
+}
+
+/* Medals for Top 3 */
+.rank li:nth-child(1) .no {
+  background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+  color: #000 !important;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.4) !important;
+}
+
+.rank li:nth-child(2) .no {
+  background: linear-gradient(135deg, #94a3b8, #64748b) !important;
+  color: #000 !important;
+}
+
+.rank li:nth-child(3) .no {
+  background: linear-gradient(135deg, #d97706, #92400e) !important;
+  color: #fff !important;
+}
+
+.rank .v {
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  color: #fbbf24 !important;
+  padding: 2px 8px !important;
+  border-radius: 999px !important;
+  background: rgba(245, 158, 11, 0.1) !important;
+  border: 1px solid rgba(245, 158, 11, 0.2) !important;
+}
+
+.rank .bar {
+  grid-column: 2 / 4 !important;
+  height: 5px !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  overflow: hidden !important;
+}
+
+.rank .bar i {
+  height: 100% !important;
+  border-radius: 999px !important;
+  background: linear-gradient(90deg, #10b981 0%, #f59e0b 100%) !important;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.5) !important;
+}
+
+/* View All 64 Districts: Full Action Button */
+.link-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+  height: 44px !important;
+  margin-top: 16px !important;
+  padding: 0 16px !important;
+  border-radius: 14px !important;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.18), rgba(6, 182, 212, 0.12)) !important;
+  border: 1px solid rgba(16, 185, 129, 0.35) !important;
+  color: #f0fdf4 !important;
+  font-family: var(--font) !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  text-decoration: none !important;
+}
+
+.link-btn::after {
+  content: '→' !important;
+  font-size: 16px !important;
+  transition: transform 0.2s ease !important;
+}
+
+.link-btn:hover {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(6, 182, 212, 0.2)) !important;
+  border-color: #10b981 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3) !important;
+}
+
+.link-btn:hover::after {
+  transform: translateX(4px) !important;
+}
+
+/* ========================================================
+   --- 2. Layer Command Center (.vmenu) Creative Redesign ---
+   ======================================================== */
+.vmenu {
+  position: fixed !important;
+  z-index: 40 !important;
+  top: 86px !important;
+  right: 22px !important;
+  bottom: auto !important;
+  width: min(440px, calc(100vw - 44px)) !important;
+  max-height: calc(100vh - 106px) !important;
+  height: auto !important;
+  border-radius: 28px !important;
+  background: rgba(6, 20, 24, 0.88) !important;
+  backdrop-filter: blur(32px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(32px) saturate(180%) !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+  border-top: 2px solid #10b981 !important;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), 0 0 35px rgba(16, 185, 129, 0.15) !important;
+  padding: 22px 20px 24px !important;
+  animation: vmenu-pop 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  scrollbar-width: thin !important;
+}
+
+@keyframes vmenu-pop {
+  from {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.vmenu h3 {
+  margin: 18px 4px 10px !important;
+  font-family: var(--font) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: #34d399 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.vmenu h3:first-of-type {
+  margin-top: 4px !important;
+}
+
+.vmenu h3::after {
+  content: '' !important;
+  flex: 1 !important;
+  height: 1px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Layer Tile Cards (.vt) */
+.vgrid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 12px !important;
+}
+
+.vt {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  padding: 8px !important;
+  border-radius: 18px !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  cursor: pointer !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.vt:hover {
+  background: rgba(16, 185, 129, 0.1) !important;
+  border-color: rgba(16, 185, 129, 0.4) !important;
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35) !important;
+}
+
+.vt .vimg {
+  position: relative !important;
+  aspect-ratio: 16 / 10 !important;
+  border-radius: 13px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.vt .vimg canvas {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transition: transform 0.35s ease !important;
+}
+
+.vt:hover .vimg canvas {
+  transform: scale(1.06) !important;
+}
+
+.vt .vname {
+  font-family: var(--font) !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  color: var(--ink-2) !important;
+  text-align: center !important;
+  padding: 2px 4px !important;
+}
+
+/* Active Tile State */
+.vt[aria-pressed='true'] {
+  background: rgba(16, 185, 129, 0.18) !important;
+  border: 1.5px solid #10b981 !important;
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.35), inset 0 0 12px rgba(16, 185, 129, 0.15) !important;
+}
+
+.vt[aria-pressed='true'] .vname {
+  color: #f0fdf4 !important;
+  font-weight: 700 !important;
+}
+
+.vt[aria-pressed='true']::after {
+  content: '✓ সক্রিয় (ACTIVE)' !important;
+  display: block !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+  color: #34d399 !important;
+  text-align: center !important;
+  margin-top: -4px !important;
+}
+
 </style>
 </head>
 <body>
@@ -949,7 +1349,10 @@ noscript { position: fixed; inset: 0; display: grid; place-items: center; z-inde
     kbd.textContent = 'Ctrl+K';
   }
 
-  // 2. Theme Switcher: cycles between emerald -> slate -> gold -> light
+  if (new URLSearchParams(location.search).get('open_menu')) {
+       setTimeout(() => document.getElementById('b-view')?.click(), 1000);
+     }
+     // 2. Theme Switcher: cycles between emerald -> slate -> gold -> light
   const themes = ['emerald', 'slate', 'gold', 'light'];
   let currentTheme = localStorage.getItem('sb_theme') || 'emerald';
   if (currentTheme !== 'emerald') {
