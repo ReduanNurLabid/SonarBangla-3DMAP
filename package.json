@@ -1,23 +1,28 @@
 {
-  "name": "bangladesh-3d-map",
+  "name": "sonarbangla-3d",
   "version": "1.0.0",
-  "description": "Interactive 3D Bangladesh Map Project with 64 Districts, 8 Divisions, Search, and BCS Atlas",
+  "description": "SonarBangla3D (সোনার বাংলা ৩ডি) — Interactive 3D Bangladesh Atlas & Geographic Knowledge Engine",
   "scripts": {
     "dev": "vite --host --port 3000",
     "build": "vite build",
     "preview": "vite preview --port 3000"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ReduanNurLabid/SonarBangla-3DMAP.git"
+  },
   "keywords": [
     "bangladesh",
+    "sonarbangla3d",
     "map",
     "3d",
     "webgl",
-    "bcs",
     "districts",
     "divisions",
-    "atlas"
+    "atlas",
+    "geography"
   ],
-  "author": "",
+  "author": "Reduan Nur Labid",
   "license": "MIT",
   "devDependencies": {
     "vite": "^6.0.0"

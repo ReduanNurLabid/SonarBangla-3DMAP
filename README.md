@@ -1,16 +1,17 @@
-# Bangladesh 3D Interactive Map & Atlas (বাংলাদেশ ৩ডি মানচিত্র)
+# SonarBangla3D (সোনার বাংলা ৩ডি)
+### Interactive 3D Bangladesh Atlas & Geographic Knowledge Engine
 
-A standalone, interactive 3D WebGL map of Bangladesh featuring all 64 districts, 8 divisions, rivers, topography, administrative facts, and BCS geography study tools.
+[![GitHub Repository](https://img.shields.io/badge/GitHub-SonarBangla--3DMAP-emerald?logo=github)](https://github.com/ReduanNurLabid/SonarBangla-3DMAP.git)
+[![License: MIT](https://img.shields.io/badge/License-MIT-amber.svg)](LICENSE)
+[![Framework: Standalone WebGL](https://img.shields.io/badge/Engine-WebGL%20%2F%20Three.js-blue.svg)](https://threejs.org)
 
-Inspired by and compatible with the Prottoy BCS Map interactive application.
-
-![Bangladesh 3D Map Preview](https://raw.githubusercontent.com/placeholder/preview.png)
+**SonarBangla3D** is an interactive, standalone 3D atlas and geographic exploration platform for Bangladesh. It renders the entire country in 3D perspective with 64 administrative districts, 8 divisions, river networks, topography, and real-time search.
 
 ---
 
 ## 🌟 Key Features
 
-- **Interactive 3D WebGL Canvas**: Smooth rotate, tilt, pan, and zoom across all 64 districts with 3D elevation and extruded division polygons.
+- **Interactive 3D WebGL Engine**: Smooth 360° orbit, camera tilt, pan, and zoom with 60 FPS performance.
 - **8 Administrative Divisions (৮টি বিভাগ)**:
   - Dhaka (ঢাকা - ১৩টি জেলা)
   - Chattogram (চট্টগ্রাম - ১১টি জেলা)
@@ -20,31 +21,36 @@ Inspired by and compatible with the Prottoy BCS Map interactive application.
   - Sylhet (সিলেট - ৪টি জেলা)
   - Rangpur (রংপুর - ৮টি জেলা)
   - Mymensingh (ময়মনসিংহ - ৪টি জেলা)
-- **Division Separation Mode (ম্যাপ দিয়ে আলাদা করুন)**: Highlight and separate division boundaries in 3D.
-- **Search & Auto-Fly**: Real-time search by district name (বাংলা ও English), upazila, river, or landmarks with fly-to zoom animations.
-- **Detailed District Fact Sheets**: Slide-out panel for any clicked district with area (বর্গকিমি), population, upazila list, historical places, geography, and BCS study points.
-- **Surrounding Geography**: Neighboring regions labeled (Meghalaya, Assam, Tripura, Mizoram, West Bengal, Myanmar, Bay of Bengal).
-- **Bilingual Interface**: Seamless 1-click toggle between Bengali (বাংলা) and English.
-- **Zero Runtime Dependencies**: Completely self-contained HTML/WebGL bundle. Works standalone or via modern bundlers (Vite).
+- **3D Division Separation Mode (ম্যাপ দিয়ে আলাদা করুন)**: Dissect and elevate division islands in 3D space.
+- **Keyboard-Enabled Omnibar Search**: Instant autocomplete search with `Ctrl + K` or `/` shortcut and smooth camera fly-to animations.
+- **Multi-Theme Engine**:
+  - 🌿 **Cyber Emerald** (Default)
+  - 🌌 **Midnight Slate**
+  - 👑 **Sunset Gold**
+  - ☀️ **Daylight Studio**
+- **Surrounding Geography**: Labeled cross-border regions (*Meghalaya, Assam, Tripura, Mizoram, West Bengal, Myanmar, Bay of Bengal*).
+- **Bilingual Interface**: 1-click toggle between Bengali (বাংলা) and English.
+- **Zero Runtime Dependencies**: Completely self-contained client-side bundle.
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Getting Started
 
-### Option 1: Standalone (No Node.js Required)
-Simply open `index.html` directly in any modern web browser (Google Chrome, Microsoft Edge, Safari, Firefox).
-
-### Option 2: Run with Vite Dev Server
+### Local Development
 ```bash
-# 1. Install dependencies
+# 1. Clone the repository
+git clone https://github.com/ReduanNurLabid/SonarBangla-3DMAP.git
+cd SonarBangla-3DMAP
+
+# 2. Install dev dependencies
 npm install
 
-# 2. Start local development server
+# 3. Start development server
 npm run dev
 ```
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Option 3: Production Build
+### Production Build
 ```bash
 npm run build
 npm run preview
@@ -53,33 +59,32 @@ Production assets are generated in `dist/`.
 
 ---
 
-## 🧭 URL Parameters & Deep Linking
+## ⌨️ Keyboard Shortcuts
 
-You can deep-link into specific views or districts using query parameters or hash:
-
-| Parameter | Description | Examples |
-|-----------|-------------|----------|
-| `v` | Map view mode (`division`, `district`, `rivers`, etc.) | `?v=division` |
-| `d` | Focus on specific district (index / name) | `?d=dhaka`, `?d=chattogram` |
-| `f` | Fullscreen / focus mode (`1` for true) | `?f=1` |
-
-Example:
-```
-http://localhost:3000/?v=division
-```
+| Shortcut | Action |
+|----------|--------|
+| `Ctrl + K` or `⌘K` | Focus Search Bar |
+| `/` | Quick Search |
+| `Esc` | Clear Search / Close Panels |
 
 ---
 
-## 🌐 Deployment
+## 🧭 Architecture Decision Records (ADR)
 
-This project can be deployed to any static host with zero configuration:
-- **GitHub Pages**: Push to repository and enable GitHub Pages on `main` branch or `/dist` folder.
-- **Vercel**: Run `vercel` or link your Git repository.
-- **Netlify**: Drag and drop the root folder or `dist/`.
-- **Cloudflare Pages**: Connect repo with build command `npm run build` and output directory `dist`.
+All foundational architectural decisions are documented under `/docs/adr`:
+- [ADR 0001: SonarBangla3D Brand Identity, UI/UX Redesign, and Architecture Decoupling](docs/adr/0001-brand-ui-differentiation-and-engine-decoupling.md)
+
+---
+
+## 🗺️ Roadmap & Upcoming Upgrades
+
+- [ ] **Bangladesh GeoGuessr Game (ম্যাপ অনুমান)**: Pin the district based on photo clues, monuments, and cultural landmarks.
+- [ ] **1971 Liberation War Sectors Layer**: Interactive visualization of the 11 wartime sectors and commanders.
+- [ ] **Ancient Bengal Janapadas**: Historical overlay of *Banga, Pundra, Gauda, Samatata, Harikela*.
+- [ ] **National Megaprojects**: Interactive pins for Padma Bridge, Metro Rail, Karnaphuli Tunnel, and Rooppur.
 
 ---
 
 ## 📄 License
 
-MIT License. Educational and study use.
+MIT License. Designed and maintained for open geographic education.
