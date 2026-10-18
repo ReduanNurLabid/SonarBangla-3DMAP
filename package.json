@@ -1,0 +1,25 @@
+{
+  "name": "bangladesh-3d-map",
+  "version": "1.0.0",
+  "description": "Interactive 3D Bangladesh Map Project with 64 Districts, 8 Divisions, Search, and BCS Atlas",
+  "scripts": {
+    "dev": "vite --host --port 3000",
+    "build": "vite build",
+    "preview": "vite preview --port 3000"
+  },
+  "keywords": [
+    "bangladesh",
+    "map",
+    "3d",
+    "webgl",
+    "bcs",
+    "districts",
+    "divisions",
+    "atlas"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^6.0.0"
+  }
+}
