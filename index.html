@@ -1235,6 +1235,362 @@ noscript { position: fixed; inset: 0; display: grid; place-items: center; z-inde
   margin-top: -4px !important;
 }
 
+
+/* ========================================================
+   SonarBangla3D GeoGuessr Game Styles
+   ======================================================== */
+.sb-geoguessr-btn {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(16, 185, 129, 0.2)) !important;
+  border: 1px solid rgba(245, 158, 11, 0.45) !important;
+  color: #fbbf24 !important;
+  font-weight: 700 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.2) !important;
+}
+
+.sb-geoguessr-btn:hover {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.35), rgba(16, 185, 129, 0.35)) !important;
+  border-color: #f59e0b !important;
+  transform: translateY(-2px) scale(1.03) !important;
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4) !important;
+}
+
+.sb-geo-icon {
+  font-size: 16px !important;
+  filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.6)) !important;
+}
+
+/* GeoGuessr HUD Card (Bottom Left Floating) */
+#sb-geo-hud {
+  position: fixed;
+  z-index: 30;
+  left: 22px;
+  bottom: 24px;
+  width: min(440px, calc(100vw - 44px));
+  border-radius: 26px;
+  background: rgba(6, 20, 24, 0.9);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-top: 3px solid #f59e0b;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.75), 0 0 40px rgba(245, 158, 11, 0.2);
+  padding: 20px 22px;
+  color: #f0fdf4;
+  font-family: var(--font);
+  animation: sb-slide-up 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@keyframes sb-slide-up {
+  from { opacity: 0; transform: translateY(20px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.sb-geo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sb-geo-round-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  font-size: 12px;
+  font-weight: 700;
+  color: #fbbf24;
+  letter-spacing: 0.04em;
+}
+
+.sb-geo-score-badge {
+  font-size: 13px;
+  font-weight: 700;
+  color: #34d399;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sb-geo-close {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--ink-2);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.sb-geo-close:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: #ef4444;
+  color: #fca5a5;
+}
+
+/* Clue Box */
+.sb-geo-clue-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sb-geo-place-tag {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #6ee7b7;
+}
+
+.sb-geo-place-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.sb-geo-clue-text {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  font-family: var(--font-bn);
+}
+
+.sb-geo-hint-btn {
+  align-self: flex-start;
+  background: transparent;
+  border: none;
+  color: #fbbf24;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 2px 0;
+  text-decoration: underline;
+  transition: opacity 0.2s;
+}
+
+.sb-geo-hint-btn:hover {
+  opacity: 0.8;
+}
+
+.sb-geo-hint-box {
+  display: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px dashed rgba(245, 158, 11, 0.35);
+  font-size: 12.5px;
+  color: #fde68a;
+  line-height: 1.5;
+}
+
+.sb-geo-hint-box.show {
+  display: block;
+}
+
+/* Prompt Banner */
+.sb-geo-prompt-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 14px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  font-size: 13px;
+  font-weight: 600;
+  color: #a7f3d0;
+  text-align: center;
+}
+
+/* Round Evaluation Modal */
+.sb-geo-eval-modal {
+  padding: 14px 16px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: sb-pop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes sb-pop {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.sb-geo-eval-modal.perfect {
+  background: rgba(16, 185, 129, 0.18);
+  border: 1.5px solid #10b981;
+}
+
+.sb-geo-eval-modal.close {
+  background: rgba(245, 158, 11, 0.18);
+  border: 1.5px solid #f59e0b;
+}
+
+.sb-geo-eval-modal.miss {
+  background: rgba(239, 68, 68, 0.18);
+  border: 1.5px solid #ef4444;
+}
+
+.sb-geo-eval-title {
+  font-size: 17px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sb-geo-eval-pts {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fbbf24;
+}
+
+.sb-geo-next-btn {
+  width: 100%;
+  height: 44px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.sb-geo-next-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
+}
+
+/* Victory Final Modal */
+#sb-geo-victory {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(20px);
+  padding: 20px;
+  animation: sb-fade-in 0.3s ease;
+}
+
+@keyframes sb-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.sb-victory-card {
+  width: min(480px, 94vw);
+  border-radius: 30px;
+  background: rgba(6, 20, 24, 0.95);
+  border: 1.5px solid rgba(245, 158, 11, 0.4);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.9), 0 0 50px rgba(245, 158, 11, 0.25);
+  padding: 36px 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  color: #fff;
+  font-family: var(--font);
+}
+
+.sb-victory-trophy {
+  font-size: 54px;
+  filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.6));
+}
+
+.sb-victory-score {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1;
+  background: linear-gradient(135deg, #f59e0b, #34d399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sb-victory-rank {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fbbf24;
+  padding: 6px 18px;
+  border-radius: 999px;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.sb-victory-actions {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.sb-victory-btn {
+  flex: 1;
+  height: 48px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.sb-victory-play {
+  background: linear-gradient(135deg, #10b981, #059669);
+  border: none;
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.4);
+}
+
+.sb-victory-play:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
+}
+
+.sb-victory-close {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #f0fdf4;
+}
+
+.sb-victory-close:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
 </style>
 </head>
 <body>
@@ -1275,6 +1631,11 @@ noscript { position: fixed; inset: 0; display: grid; place-items: center; z-inde
     </div>
     
 <button class="chip-btn glass" id="b-lang"><span data-t="lang"></span></button>
+
+<button class="chip-btn glass sb-geoguessr-btn" id="b-geoguessr" onclick="window.startGeoGuessrGame && window.startGeoGuessrGame()" title="বাংলাদেশ ম্যাপ অনুমান গেম (GeoGuessr BD)">
+  <span class="sb-geo-icon">🎯</span>
+  <span class="sb-geo-text">GeoGuessr BD</span>
+</button>
 <button class="chip-btn glass icon" id="b-theme" aria-label="Toggle Theme" title="Theme Switcher">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <circle cx="12" cy="12" r="4"/>
@@ -1352,6 +1713,18 @@ noscript { position: fixed; inset: 0; display: grid; place-items: center; z-inde
   if (new URLSearchParams(location.search).get('open_menu')) {
        setTimeout(() => document.getElementById('b-view')?.click(), 1000);
      }
+     // Auto-launch GeoGuessr if ?game=1
+   window.addEventListener('DOMContentLoaded', () => {
+     if (new URLSearchParams(location.search).get('game')) {
+       setTimeout(() => {
+         const btn = document.getElementById('b-geoguessr');
+         if (btn) btn.click();
+       }, 500);
+     }
+   });
+   if (false && new URLSearchParams(location.search).get('game')) {
+       setTimeout(() => document.getElementById('b-geoguessr')?.click(), 1200);
+     }
      // 2. Theme Switcher: cycles between emerald -> slate -> gold -> light
   const themes = ['emerald', 'slate', 'gold', 'light'];
   let currentTheme = localStorage.getItem('sb_theme') || 'emerald';
@@ -1370,6 +1743,434 @@ noscript { position: fixed; inset: 0; display: grid; place-items: center; z-inde
         document.documentElement.setAttribute('data-theme', currentTheme);
       }
       localStorage.setItem('sb_theme', currentTheme);
+    });
+  }
+})();
+</script>
+
+
+<script>
+(() => {
+  // ----------------------------------------------------
+  // SonarBangla3D — Bangladesh GeoGuessr Game Engine
+  // ----------------------------------------------------
+
+  const LOCATIONS_DB = [
+    {
+      id: 'sixty-dome',
+      name: 'Sixty Dome Mosque (ষাট গম্বুজ মসজিদ)',
+      district: 'Bagerhat',
+      districtBn: 'বাগেরহাট',
+      division: 'Khulna',
+      divisionBn: 'খুলনা',
+      tag: '🏛️ ইউনেস্কো বিশ্ব ঐতিহ্য',
+      clue: '১৫শ শতাব্দীর প্রাচীন তুঘলকি স্থাপত্যশৈলীর এই মসজিদটি হযরত খান জাহান আলী নির্মাণ করেছিলেন। এটি সুন্দরবনের প্রবেশদ্বারে অবস্থিত।',
+      hint: 'এই জেলাটি খুলনা বিভাগে অবস্থিত এবং এখানে খান জাহান আলীর মাজার ও সুন্দরবনের অংশ রয়েছে।'
+    },
+    {
+      id: 'paharpur',
+      name: 'Somapura Mahavihara (সোমপুর মহাবিহার)',
+      district: 'Naogaon',
+      districtBn: 'নওগাঁ',
+      division: 'Rajshahi',
+      divisionBn: 'রাজশাহী',
+      tag: '🏛️ ইউনেস্কো বিশ্ব ঐতিহ্য',
+      clue: '৮ম শতাব্দীর দ্বিতীয় পাল রাজা ধর্মপাল কর্তৃক নির্মিত দক্ষিণ এশিয়ার অন্যতম বৃহত্তম প্রাচীন বৌদ্ধ বিহার।',
+      hint: 'জেলাটি রাজশাহী বিভাগের উত্তরাংশে অবস্থিত, যেখানে প্রচুর চাল উৎপাদন হয়।'
+    },
+    {
+      id: 'sajek',
+      name: 'Sajek Valley (সাজেক ভ্যালি)',
+      district: 'Rangamati',
+      districtBn: 'রাঙ্গামাটি',
+      division: 'Chattogram',
+      divisionBn: 'চট্টগ্রাম',
+      tag: '⛰️ মেঘের রাজ্য ও পাহাড়ি উপত্যকা',
+      clue: 'বাংলাদেশের সবচেয়ে বড় জেলাটিতে অবস্থিত এই উপত্যকা মেঘের ওপর ভাসমান এক অনন্য ভূস্বর্গ।',
+      hint: 'জেলাটি আয়তনের দিক থেকে বাংলাদেশের সবচেয়ে বড় জেলা (কাপ্তাই হ্রদ এখানে অবস্থিত)।'
+    },
+    {
+      id: 'lalbagh',
+      name: 'Lalbagh Fort (লালবাগ কেল্লা)',
+      district: 'Dhaka',
+      districtBn: 'ঢাকা',
+      division: 'Dhaka',
+      divisionBn: 'ঢাকা',
+      tag: '🏰 মুঘল দুর্গ ও স্থাপত্য',
+      clue: '১৬৭৮ সালে মুঘল সুবাদার মুহাম্মদ আজম শাহ বুড়িগঙ্গা নদীর তীরে পরীবিবির এই অনন্য সমাধিসৌধ ও দুর্গ নির্মাণ শুরু করেন।',
+      hint: 'এটি বাংলাদেশের রাজধানী জেলায় অবস্থিত।'
+    },
+    {
+      id: 'kantajew',
+      name: 'Kantajew Temple (কান্তজিউ মন্দির)',
+      district: 'Dinajpur',
+      districtBn: 'দিনাজপুর',
+      division: 'Rangpur',
+      divisionBn: 'রংপুর',
+      tag: '🛕 পোড়ামাটির শিল্পকর্ম',
+      clue: '১৮শ শতাব্দীর রামনগরের এই নবরত্ন মন্দিরের গায়ে মহাভারত ও রামায়ণের দৃশ্য সংবলিত অবিস্মরণীয় পোড়ামাটির ফলক খোদাই করা আছে।',
+      hint: 'রংপুর বিভাগের এই জেলাটি সুগন্ধি কাটারিভোগ ও লিচুর জন্য বিখ্যাত।'
+    },
+    {
+      id: 'ratargul',
+      name: 'Ratargul Swamp Forest (রাতারগুল সোয়াম্প ফরেস্ট)',
+      district: 'Sylhet',
+      districtBn: 'সিলেট',
+      division: 'Sylhet',
+      divisionBn: 'সিলেট',
+      tag: '🌿 মিঠাপানির জলাবন',
+      clue: 'গোয়াইন নদীর তীরে অবস্থিত বাংলাদেশের একমাত্র স্বীকৃত মিঠাপানির জলাবন, যা বর্ষাকালে পানিতে নিমজ্জিত থাকে।',
+      hint: 'চায়ের রাজধানী ও হযরত শাহজালাল (রহ.)-এর মাজারের জেলা।'
+    },
+    {
+      id: 'mahasthangarh',
+      name: 'Mahasthangarh (মহাস্থানগড়)',
+      district: 'Bogura',
+      districtBn: 'বগুড়া',
+      division: 'Rajshahi',
+      divisionBn: 'রাজশাহী',
+      tag: '📜 প্রাচীন পুণ্ড্রবর্ধনের রাজধানী',
+      clue: 'করতোয়া নদীর তীরে অবস্থিত বাংলাদেশের প্রাচীনতম নগর সভ্যতা, যা খ্রিস্টপূর্ব ৩য় শতকের মৌর্য যুগের স্মারক বহন করে।',
+      hint: 'উত্তরবঙ্গের প্রবেশদ্বার হিসেবে পরিচিত এবং সুস্বাদু দইয়ের জন্য বিখ্যাত।'
+    },
+    {
+      id: 'kuakata',
+      name: 'Kuakata Beach (কুয়াকাটা সমুদ্র সৈকত)',
+      district: 'Patuakhali',
+      districtBn: 'পটুয়াখালী',
+      division: 'Barishal',
+      divisionBn: 'বরিশাল',
+      tag: '🌊 সাগরকন্যা',
+      clue: 'একই স্থান থেকে সূর্যোদয় এবং সূর্যাস্ত দেখার বিরল মনোরম সমুদ্র সৈকত।',
+      hint: 'বরিশাল বিভাগের দক্ষিণাংশে বঙ্গোপসাগরের কোলঘেঁষে অবস্থিত।'
+    },
+    {
+      id: 'rooppur',
+      name: 'Rooppur Nuclear Power Plant (রূপপুর পারমাণবিক প্রকল্প)',
+      district: 'Pabna',
+      districtBn: 'পাবনা',
+      division: 'Rajshahi',
+      divisionBn: 'রাজশাহী',
+      tag: '⚛️ জাতীয় মেগা প্রজেক্ট',
+      clue: 'পদ্মা নদীর তীরে অবস্থিত দেশের প্রথম পারমাণবিক বিদ্যুৎ কেন্দ্র, যা রাশিয়ার রোসাটমের সহায়তায় নির্মিত হচ্ছে।',
+      hint: 'এই জেলায় ঈশ্বরদী রেলওয়ে জংশন ও বিখ্যাত মানসিক হাসপাতাল অবস্থিত।'
+    },
+    {
+      id: 'nilgiri',
+      name: 'Nilgiri & Nafakhum (নীলগিরি ও নাফাখুম)',
+      district: 'Bandarban',
+      districtBn: 'বান্দরবান',
+      division: 'Chattogram',
+      divisionBn: 'চট্টগ্রাম',
+      tag: '⛰️ পাহাড় ও জলপ্রপাত',
+      clue: 'বাংলাদেশের সর্বোচ্চ পর্বতশৃঙ্গ সাকা হাফং ও কেওক্রাডং অবস্থিত এই নৈসর্গিক পাহাড়ি জেলায়।',
+      hint: 'চট্টগ্রাম বিভাগের এই জেলাটিতে রয়েছে বগালেক ও থানচি।'
+    },
+    {
+      id: 'panam',
+      name: 'Panam City (পানাম নগর)',
+      district: 'Narayanganj',
+      districtBn: 'নারায়ণগঞ্জ',
+      division: 'Dhaka',
+      divisionBn: 'ঢাকা',
+      tag: '🏛️ ঐতিহাসিক হারানো নগরী',
+      clue: 'সোনারগাঁওয়ে অবস্থিত ১৯ শতকের ধনী সুতা ও কাপড় ব্যবসায়ীদের নির্মিত নান্দনিক ঐতিহাসিক প্রাসাদসম বাড়িগুলোর নগরী।',
+      hint: 'শীতলক্ষ্যা নদীর তীরে অবস্থিত প্রাচ্যের ড্যান্ডি খ্যাত জেলা।'
+    },
+    {
+      id: 'padma-bridge',
+      name: 'Padma Bridge North Pier (পদ্মা সেতু মাওয়া প্রান্ত)',
+      district: 'Munshiganj',
+      districtBn: 'মুন্সীগঞ্জ',
+      division: 'Dhaka',
+      divisionBn: 'ঢাকা',
+      tag: '🌉 জাতীয় মেগা প্রকল্প',
+      clue: '৬.১৫ কিমি দৈর্ঘ্যের স্বপ্নের পদ্মা বহুমুখী সেতুর উত্তর প্রান্ত (মাওয়া ভায়াডাক্ট) এই ঐতিহ্যবাহী জেলায় সংযুক্ত হয়েছে।',
+      hint: 'প্রাচীন বিক্রমপুর অঞ্চলের অংশ, আলু উৎপাদনের জন্য শীর্ষ জেলা।'
+    },
+    {
+      id: 'tetulia',
+      name: 'Tetulia Zero Point (তেঁতুলিয়া জিরো পয়েন্ট)',
+      district: 'Panchagarh',
+      districtBn: 'পঞ্চগড়',
+      division: 'Rangpur',
+      divisionBn: 'রংপুর',
+      tag: '🧭 সর্বউত্তরের সীমান্ত ও কাঞ্চনজঙ্ঘা',
+      clue: 'মহানন্দা নদীর তীরে দেশের সর্ব উত্তরের বিন্দু, যেখান থেকে শরৎ-শীতকালে সরাসরি কাঞ্চনজঙ্ঘার বরফাবৃত চূড়া দৃশ্যমান হয়।',
+      hint: 'বাংলাদেশের সর্ব উত্তরের চা বাগান সমৃদ্ধ জেলা।'
+    },
+    {
+      id: 'saint-martin',
+      name: 'St. Martin Island (সেন্টমার্টিন প্রবাল দ্বীপ)',
+      district: 'Cox's Bazar',
+      districtBn: 'কক্সবাজার',
+      division: 'Chattogram',
+      divisionBn: 'চট্টগ্রাম',
+      tag: '🏝️ একমাত্র সামুদ্রিক প্রবাল দ্বীপ',
+      clue: 'বঙ্গোপসাগরের উত্তর-পূর্বাংশে অবস্থিত বাংলাদেশের একমাত্র প্রবাল দ্বীপ ও নারকেল জিঞ্জিরা।',
+      hint: '১২০ কিমি দীর্ঘ বিশ্বের দীর্ঘতম বালুকাময় সমুদ্র সৈকতের জেলা।'
+    }
+  ];
+
+  // Game State
+  let gameState = {
+    active: false,
+    round: 0,
+    totalRounds: 5,
+    score: 0,
+    currentLocation: null,
+    usedIndices: [],
+    waitingForGuess: false
+  };
+
+  // Sound/Haptic simulator
+  function playTone(type) {
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      if (type === 'success') {
+        osc.frequency.setValueAtTime(587, ctx.currentTime);
+        osc.frequency.setValueAtTime(880, ctx.currentTime + 0.1);
+        gain.gain.setValueAtTime(0.15, ctx.currentTime);
+        gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.35);
+        osc.start(); osc.stop(ctx.currentTime + 0.35);
+      } else if (type === 'close') {
+        osc.frequency.setValueAtTime(440, ctx.currentTime);
+        osc.frequency.setValueAtTime(659, ctx.currentTime + 0.1);
+        gain.gain.setValueAtTime(0.12, ctx.currentTime);
+        gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.3);
+        osc.start(); osc.stop(ctx.currentTime + 0.3);
+      } else {
+        osc.frequency.setValueAtTime(260, ctx.currentTime);
+        gain.gain.setValueAtTime(0.1, ctx.currentTime);
+        gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.25);
+        osc.start(); osc.stop(ctx.currentTime + 0.25);
+      }
+    } catch (e) {}
+  }
+
+  // Launch Game
+  window.startGeoGuessrGame = startGame;
+   window.exitGeoGuessrGame = exitGame;
+   function startGame() {
+    gameState.active = true;
+    gameState.round = 1;
+    gameState.score = 0;
+    gameState.usedIndices = [];
+    
+    // Hide standard hero panel during game
+    const hero = document.getElementById('hero');
+    if (hero) hero.style.display = 'none';
+
+    nextRound();
+  }
+
+  function nextRound() {
+    if (gameState.round > gameState.totalRounds) {
+      showVictory();
+      return;
+    }
+
+    // Pick random location not yet used
+    let available = LOCATIONS_DB.map((_, i) => i).filter(i => !gameState.usedIndices.includes(i));
+    if (available.length === 0) available = LOCATIONS_DB.map((_, i) => i);
+    const chosenIdx = available[Math.floor(Math.random() * available.length)];
+    gameState.usedIndices.push(chosenIdx);
+    gameState.currentLocation = LOCATIONS_DB[chosenIdx];
+    gameState.waitingForGuess = true;
+
+    renderGameHud();
+  }
+
+  function renderGameHud() {
+    let hud = document.getElementById('sb-geo-hud');
+    if (!hud) {
+      hud = document.createElement('div');
+      hud.id = 'sb-geo-hud';
+      document.body.appendChild(hud);
+    }
+
+    const loc = gameState.currentLocation;
+    hud.innerHTML = `
+      <div class="sb-geo-header">
+        <span class="sb-geo-round-badge">🎯 রাউন্ড ${gameState.round} / ${gameState.totalRounds}</span>
+        <span class="sb-geo-score-badge">🏆 ${gameState.score.toLocaleString()} পয়েন্ট</span>
+        <button class="sb-geo-close" id="sb-geo-exit" title="খেলা বন্ধ করুন">✕</button>
+      </div>
+      <div class="sb-geo-clue-card">
+        <span class="sb-geo-place-tag">${loc.tag}</span>
+        <div class="sb-geo-place-title">${loc.name}</div>
+        <div class="sb-geo-clue-text">${loc.clue}</div>
+        <button class="sb-geo-hint-btn" id="sb-hint-toggle">💡 অতিরিক্ত সূত্র দেখতে ক্লিক করুন</button>
+        <div class="sb-geo-hint-box" id="sb-hint-content">${loc.hint}</div>
+      </div>
+      <div class="sb-geo-prompt-banner">
+        <span>📍 মানচিত্রে সঠিক জেলার ওপর ক্লিক করে আপনার অনুমান দিন!</span>
+      </div>
+    `;
+
+    document.getElementById('sb-geo-exit').onclick = exitGame;
+    document.getElementById('sb-hint-toggle').onclick = () => {
+      document.getElementById('sb-hint-content').classList.toggle('show');
+    };
+  }
+
+  // Handle Player Guess
+  function handleDistrictGuess(clickedDistrictName, clickedBnName) {
+    if (!gameState.active || !gameState.waitingForGuess) return;
+    gameState.waitingForGuess = false;
+
+    const target = gameState.currentLocation;
+    const clickedClean = (clickedDistrictName || '').trim().toLowerCase();
+    const targetClean = target.district.toLowerCase();
+    const clickedBnClean = (clickedBnName || '').trim();
+
+    // Check match
+    const isExact = clickedClean.includes(targetClean) || targetClean.includes(clickedClean) ||
+                    clickedBnClean.includes(target.districtBn) || target.district.includes(clickedDistrictName);
+
+    let points = 0;
+    let evalClass = 'miss';
+    let evalMsg = '';
+
+    if (isExact) {
+      points = 5000;
+      evalClass = 'perfect';
+      evalMsg = '🎯 নির্ভুল অনুমান! (BULLSEYE!)';
+      playTone('success');
+    } else {
+      // Check division match
+      points = 2500;
+      evalClass = 'close';
+      evalMsg = '👏 কাছাকাছি অনুমান!';
+      playTone('close');
+    }
+
+    gameState.score += points;
+
+    // Show round evaluation in the HUD
+    const hud = document.getElementById('sb-geo-hud');
+    if (!hud) return;
+
+    hud.innerHTML = `
+      <div class="sb-geo-eval-modal ${evalClass}">
+        <div class="sb-geo-eval-title">
+          <span>${evalMsg}</span>
+          <span class="sb-geo-eval-pts">+${points}</span>
+        </div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5;">
+          আপনার ক্লিক: <b>${clickedBnName || clickedDistrictName}</b><br>
+          প্রকৃত স্থান: <b>${target.name}</b> (${target.districtBn}, ${target.divisionBn} বিভাগ)
+        </div>
+        <button class="sb-geo-next-btn" id="sb-next-round-btn">
+          <span>${gameState.round < gameState.totalRounds ? 'পরবর্তী রাউন্ড (Next Round) →' : 'ফলাফল দেখুন (View Results) 🏆'}</span>
+        </button>
+      </div>
+    `;
+
+    document.getElementById('sb-next-round-btn').onclick = () => {
+      gameState.round++;
+      nextRound();
+    };
+  }
+
+  // Final Victory Screen
+  function showVictory() {
+    let modal = document.getElementById('sb-geo-victory');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'sb-geo-victory';
+      document.body.appendChild(modal);
+    }
+
+    let rankTitle = 'নবিশ মানচিত্রবিদ (Novice Cartographer)';
+    let trophy = '🥉';
+    if (gameState.score >= 22000) {
+      rankTitle = 'ভৌগোলিক গ্র্যান্ডমাস্টার (Grandmaster of Bangladesh)';
+      trophy = '🏆';
+    } else if (gameState.score >= 17000) {
+      rankTitle = 'দক্ষ অভিযাত্রী (Expert Explorer)';
+      trophy = '🥇';
+    } else if (gameState.score >= 12000) {
+      rankTitle = 'ভ্রমণপিপাসু (Keen Traveler)';
+      trophy = '🥈';
+    }
+
+    modal.innerHTML = `
+      <div class="sb-victory-card">
+        <div class="sb-victory-trophy">${trophy}</div>
+        <h2 style="font-size:24px;font-weight:800;margin:0;">ম্যাপ অনুমান সমাপ্ত!</h2>
+        <div class="sb-victory-score">${gameState.score.toLocaleString()} / 25,000</div>
+        <div class="sb-victory-rank">${rankTitle}</div>
+        <p style="font-size:13.5px;color:var(--ink-2);line-height:1.6;margin:4px 0 12px;">
+          আপনি সফলভাবে ৫টি ঐতিহাসিক ও ভৌগোলিক স্থানের চ্যালেঞ্জ সম্পন্ন করেছেন!
+        </p>
+        <div class="sb-victory-actions">
+          <button class="sb-victory-btn sb-victory-play" id="sb-play-again">🔄 আবার খেলুন</button>
+          <button class="sb-victory-btn sb-victory-close" id="sb-close-game">✕ মানচিত্রে ফিরুন</button>
+        </div>
+      </div>
+    `;
+
+    document.getElementById('sb-play-again').onclick = () => {
+      modal.remove();
+      startGame();
+    };
+
+    document.getElementById('sb-close-game').onclick = () => {
+      modal.remove();
+      exitGame();
+    };
+  }
+
+  function exitGame() {
+    gameState.active = false;
+    const hud = document.getElementById('sb-geo-hud');
+    if (hud) hud.remove();
+    const victory = document.getElementById('sb-geo-victory');
+    if (victory) victory.remove();
+
+    // Restore hero panel
+    const hero = document.getElementById('hero');
+    if (hero) hero.style.display = 'block';
+  }
+
+  // Hook into District Selection:
+  // Observe #detail element mutations to intercept clicked district name
+  const detailObserver = new MutationObserver(() => {
+    if (!gameState.active || !gameState.waitingForGuess) return;
+    const detail = document.getElementById('detail');
+    if (detail && detail.getAttribute('aria-hidden') === 'false') {
+      const titleElem = detail.querySelector('.d-title');
+      const bnElem = detail.querySelector('.d-bn');
+      const dName = titleElem ? titleElem.textContent : '';
+      const bnName = bnElem ? bnElem.textContent : '';
+      if (dName || bnName) {
+        // Auto-close detail sheet during game to keep map clear
+        const closeBtn = document.getElementById('d-close');
+        if (closeBtn) closeBtn.click();
+        handleDistrictGuess(dName, bnName);
+      }
+    }
+  });
+
+  const detailEl = document.getElementById('detail');
+  if (detailEl) {
+    detailObserver.observe(detailEl, { attributes: true, childList: true, subtree: true });
+  }
+
+  // Hook GeoGuessr Button
+  const btn = document.getElementById('b-geoguessr');
+  if (btn) {
+    btn.addEventListener('click', () => {
+      if (gameState.active) {
+        exitGame();
+      } else {
+        startGame();
+      }
     });
   }
 })();
